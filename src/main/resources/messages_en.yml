@@ -1,0 +1,145 @@
+# This is the official German translation file for the Westonia plugin.
+# These messages are displayed to the user in the game, so they should be following the same style and tone as the other messages.
+
+# The file is divided into sections, each section is marked with a comment that contains the prefix of the messages in that section.
+# Every message stars with a prefix, which is a short word that indicates the type of message.
+# The prefixes are defined internally in the plugin and cannot be changed by the user and opens a <gray>-Tag using Minimessage - so every message is displayed in the same style.
+# For more information about the MiniMessage format, visit https://docs.advntr.dev/minimessage/format.html#standard-tags
+
+# If you want to add a new language, you can do so by creating a new file in the format "messages_<language_short>.yml".
+# This file is written in YAML, so make sure to keep the correct indentation.
+# Every messages file must contain the "languagename" key, which is the name of the language in that language.
+
+# Follow the example below where we add the klingon language:
+# 1. Copy any existing official messages file, for example, messages_en.yml, and rename it to messages_kg.yml.
+# plugins/
+#   Westonia/
+#     messages/
+#       messages_kg.yml
+#       messages_en.yml (default messages provided by the plugin)
+#       messages_de.yml (default messages provided by the plugin) [You are here]
+#
+# 2. You must change the "languagename" key to the name of the language in that language, otherwise the plugin wont start.
+# languagename: "Klingon"
+#
+# 3. Translate the messages into the new language :)
+#
+# The plugin does have some special placeholders, which can be used in the messages:
+# - {ARROWS_POINTING_RIGHT} = The prefix of the message, which is used to determine the color and style of the message.
+# - {command='command_name argument1 argument2 ...'} = Will be replaced with a command message that is registered in the Command Documentation Registry, for example, {command='fly player'}.
+# - {gradient:GRADIENT='What you want to gradient'} = Will be replaced with a gradient message, for example, {<name>='Speed'}.
+# Good to know:
+# - & color codes aren't supported as they are legacy and should be replaced with the <color> tag. See https://docs.advntr.dev/minimessage/format.html#color
+# - You can use placeholders in the messages, which are replaced by the plugin with the actual values described in the comments.
+# - You can use MiniMessage in the messages, which allows you to format the messages in a more advanced way.
+# - Any message that is not defined in the 'templates' section allows you to split the message into multiple lines by using the yaml list syntax.
+#   Internally the plugin will split the message it into multiple lines in the game chat and adds {ARROWS_POINTING_RIGHT} at the beginning of each line.
+#   If the message is prefixed, the plugin will apply the prefix to the first line.
+#   If the message starts with a special placeholder, the plugin will use that as the prefix of each line.
+#
+
+
+languagename: "English"
+
+player_join:
+
+  # Prefix: Westonia
+  data_will_be_synced: "Your player data will be synchronized..."
+
+  # Prefix: Westonia
+  data_synced: "Your player data has been {gradient:SUCCESS='successfully'} synchronized."
+
+  # Prefix: Westonia
+  wait_while_loading: "Please wait while your data is being loaded."
+
+  # Prefix: ARROW_POINTING_RIGHT
+  # The header will be sent before above this message
+  # {0} = Player name
+  # {1} = Selected language
+  welcome_message:
+    - "Welcome, {gradient:PLAYER='{0}'} to the {gradient:PREFIX'<b>Westonia</b>'} Minecraft server!"
+    - "You have selected the language {gradient:NAME='{1}'}."
+    - "Use {command='language'} to change your language."
+
+common:
+  # Prefix: NONE
+  # {0} = WESTONIA_RAW_STRING (<gradient:#00AA00:#AA0000:#AA0000>Westonia</gradient>)
+  header: "<dark_gray>[</dark_gray>=-=-=-=-=-=-=-=<dark_gray>]</dark_gray> <b>{0}</b> <dark_gray>[</dark_gray>=-=-=-=-=-=-=-=<dark_gray>]</dark_gray>"
+
+  # Prefix: ERROR
+  # {0} = Permission
+  nopermission: "Dafür hast du {gradient:ERROR='keine'} <hover:show_text:'<gray>Fehlende Berechtigung:</gray> {gradient:ERROR='{0}'}'><i>Berechtigung</i></hover>."
+
+  # Prefix: ERROR
+  # {0} = Player name
+  playernotonline: "Der Spieler {gradient:PLAYER='{0}'}  ist {gradient:ERROR='nicht'}> online."
+
+player:
+  language:
+    # Prefix: ERROR
+    error_on_save: "Leider ist ein {gradient:ERROR='Fehler'} beim Speichern deiner {gradient:NAME='Sprache'} aufgetreten. Versuche es bitte erneut."
+    # Prefix: DATABASE
+    saved: "Your language has been {gradient:SUCCESS='successfully'} set to {gradient:NAME='{0}'}."
+
+commands:
+  fly:
+    # Prefix: INFO
+    active_self: "Dein {gradient:NAME='Flugmodus'} wurde {gradient:SUCCESS='aktiviert'}."
+
+    # Prefix: INFO
+    inactive_self: "Dein {gradient:NAME='Flugmodus'} wurde {gradient:ERROR='deaktiviert'}."
+
+    # Prefix: INFO
+    # {0} = Target (Player name)
+    active_others: "Der {gradient:NAME='Flugmodus'} von {gradient:PLAYER='{0}'} wurde {gradient:SUCCESS='aktiviert'}."
+    # Prefix: INFO
+    # {0} = Target (Player name)
+    inactive_others: "Der {gradient:NAME='Flugmodus'} von {gradient:PLAYER='{0}'} wurde {gradient:ERROR='deaktiviert'}."
+
+    # Prefix: INFO
+    # {0} = Sender (PLayer name)
+    active_target: "Dein {gradient:NAME='Flugmodus'} wurde von {gradient:PLAYER='{0}'} {gradient:SUCCESS='aktiviert'}."
+    # Prefix: INFO
+    # {0} = Sender (Player name)
+    inactive_target: "Dein {gradient:NAME='Flugmodus'} wurde von {gradient:PLAYER='{0}'} {gradient:ERROR='deaktiviert'}."
+
+    # Prefix: INFO
+    # {0} = Fly speed
+    speed_self: "Deine {gradient:NAME='Fluggeschwindigkeit'} wurde auf {gradient:INTEGER='{0}'} gesetzt."
+    # Prefix: INFO
+    speed_self_default: "Deine {gradient:NAME='Fluggeschwindigkeit'} wurde auf {gradient:INTEGER='1'} (Standardgeschwindigkeit) gesetzt."
+
+    # Prefix: INFO
+    # {0} = Target (Player name)
+    # {1} = Fly speed
+    speed_others: "Die {gradient:NAME='Fluggeschwindigkeit'} von {gradient:PLAYER='{0}'} wurde auf {gradient:INTEGER='{1}'} gesetzt."
+    # Prefix: INFO
+    # {0} = Target (Player name)
+    speed_others_default: "Die {gradient:NAME='Fluggeschwindigkeit'} von {gradient:PLAYER='{0}'}  wurde auf {gradient:INTEGER='1'} (Standardgeschwindigkeit) gesetzt."
+
+    # Prefix: INFO
+    # {0} = Sender (Player name)
+    # {1} = Fly speed
+    speed_target: "Deine {gradient:NAME='Fluggeschwindigkeit'} wurde von {gradient:PLAYER='{0}'} auf {gradient:INTEGER='{1}'} gesetzt."
+    # Prefix: INFO
+    # {0} = Sender (Player name)
+    speed_target_default: "Deine {gradient:NAME='Fluggeschwindigkeit'} wurde von {gradient:PLAYER='{0}'} auf {gradient:INTEGER='1'} (Standardgeschwindigkeit) gesetzt."
+
+    notifications:
+      # Prefix: ERROR
+      speed_missing_arguments:
+      - "{gradient:ERROR='Fehlende'} Argumente für den Befehl {command='fly speed'}."
+      - "Korrekte verwendung: {command='fly speed speed player'}"
+
+      # Prefix: ERROR
+      speed_not_a_number:
+      - "Die {gradient:NAME='Fluggeschwindigkeit'} muss als {gradient:INTEGER='Ganzzahl'} angegeben werden  - \"{gradient:ERROR='{0}'}\" ist {gradient:ERROR='keine'} Ganzzahl..."
+      - "Alternativ kannst du deine {gradient:NAME='Fluggeschwindigkeit'} mit \"{gradient:NAME='reset'}\" oder \"{gradient:NAME='default'}\" auf die Standardgeschwindigkeit zurücksetzen."
+      # Prefix: ERROR
+      speed_must_be_number_between: "Die {gradient:NAME='Fluggeschwindigkeit'} muss als {gradient:INTEGER='Ganzzahl'} zwischen {gradient:INTEGER='1'} und {gradient:INTEGER='10'} angegeben werden."
+command_documentation:
+  fly:
+    fly_base: "<gray>Wechselt den Flugmodus für dich."
+    fly_player: "<gray>Wechselt den Flugmodus für einen anderen Spieler."
+    fly_speed: "<gray>Ändert die Fluggeschwindigkeit für dich."
+    fly_speed_speed: ""

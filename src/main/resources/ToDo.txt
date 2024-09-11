@@ -1,0 +1,34 @@
+Core-Commands:
+- fly
+- gms
+- gma
+- gmc
+- gmsp
+- rain
+- sun
+- clear
+- thunder
+- spawn
+- tp
+- tphere
+- tpa
+- tpahere
+- sethome
+- home
+- delhome
+- homes
+- back
+- kill
+- heal
+- feed
+- god
+- ungod
+- invsee
+- endereee
+- warp
+    - warp set
+    - warp del
+    - warp list
+        - Alias /warps
+    - warp seticon <warp> <Material | Icon-Code>
+
