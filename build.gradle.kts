@@ -11,11 +11,8 @@ application {
     mainClass.set("coffee.j4n.westonia.Westonia")
 }
 
-val dateFormat = SimpleDateFormat("yyyyMMddHHmmss")
-val buildNumber = dateFormat.format(Date()) + ""
-
 group = "coffee.j4n.westonia"
-version = "Beta 1.0 MC1.21.1-DEV $buildNumber"
+version = "Beta 1.0 MC1.21.1-DEV"
 
 repositories {
     mavenCentral()
